@@ -1,3 +1,333 @@
-<footer style="background-color: #333; color: white; padding: 10px; text-align: center; position: fixed; bottom: 0; width: 100%;">
-  <p>&copy; 2025 Your Mom's Website. All rights reserved.</p>
-</footer>
+<!-- Footer Component - Save as footer.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Central FL Homes by Mel - Footer</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    .footer {
+      background: linear-gradient(135deg, #2d5233 0%, #1e3a26 100%);
+      color: white;
+      padding: 60px 40px 20px;
+      position: relative;
+    }
+    
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #4c8259 0%, #8db894 50%, #a67c52 100%);
+    }
+    
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 50px;
+      margin-bottom: 40px;
+    }
+    
+    .footer-section h3 {
+      color: #8db894;
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    
+    .footer-about {
+      line-height: 1.6;
+    }
+    
+    .footer-about p {
+      margin-bottom: 20px;
+      color: #e8f4ea;
+    }
+    
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    
+    .footer-logo-icon {
+      font-size: 2rem;
+      color: #8db894;
+    }
+    
+    .footer-logo-text {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: white;
+    }
+    
+    .contact-info {
+      margin-top: 20px;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      color: #e8f4ea;
+    }
+    
+    .contact-icon {
+      font-size: 1.1rem;
+      color: #8db894;
+      width: 20px;
+    }
+    
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .footer-links a {
+      color: #e8f4ea;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      padding: 4px 0;
+    }
+    
+    .footer-links a:hover {
+      color: #8db894;
+    }
+    
+    .areas-served {
+      line-height: 1.6;
+    }
+    
+    .areas-list {
+      color: #e8f4ea;
+      margin-bottom: 12px;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+    
+    .social-link:hover {
+      background: #8db894;
+      transform: translateY(-3px);
+    }
+    
+    .footer-bottom {
+      border-top: 1px solid rgba(141, 184, 148, 0.3);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    
+    .footer-bottom-left {
+      color: #b8d4bb;
+      font-size: 0.9rem;
+    }
+    
+    .footer-bottom-right {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .footer-bottom-right a {
+      color: #b8d4bb;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-bottom-right a:hover {
+      color: #8db894;
+    }
+    
+    .license-info {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 15px;
+      font-size: 0.85rem;
+      color: #b8d4bb;
+      text-align: center;
+    }
+    
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      .footer {
+        padding: 40px 20px 20px;
+      }
+      
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      
+      .footer-about {
+        text-align: center;
+      }
+      
+      .footer-logo {
+        justify-content: center;
+      }
+      
+      .social-links {
+        justify-content: center;
+      }
+      
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .footer-bottom-right {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .footer-content {
+        gap: 25px;
+      }
+      
+      .footer-section h3 {
+        font-size: 1.1rem;
+      }
+      
+      .footer-logo-text {
+        font-size: 1.3rem;
+      }
+      
+      .social-link {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-content">
+        <div class="footer-section footer-about">
+          <div class="footer-logo">
+            <div class="footer-logo-icon">🌴</div>
+            <div class="footer-logo-text">Central FL Homes by Mel</div>
+          </div>
+          <p>
+            Your trusted real estate partner in Central Florida. With over 15 years of experience, Mel is dedicated to helping families find their perfect home in the heart of Florida's most beautiful communities.
+          </p>
+          <div class="contact-info">
+            <div class="contact-item">
+              <span class="contact-icon">📞</span>
+              <span>(407) 555-HOME</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">✉️</span>
+              <span>mel@centralflhomesbymel.com</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">📍</span>
+              <span>Central Florida</span>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="#" class="social-link">📘</a>
+            <a href="#" class="social-link">📷</a>
+            <a href="#" class="social-link">🐦</a>
+            <a href="#" class="social-link">💼</a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="/about">About Me</a>
+            <a href="/listings">Listings</a>
+            <a href="/the-101">The 101</a>
+            <a href="/blog">Blog</a>
+            <a href="/reviews">Reviews</a>
+            <a href="/contact">Contact</a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Services</h3>
+          <div class="footer-links">
+            <a href="/buy">Home Buying</a>
+            <a href="/sell">Home Selling</a>
+            <a href="/market-analysis">Market Analysis</a>
+            <a href="/first-time-buyers">First-Time Buyers</a>
+            <a href="/investment">Investment Properties</a>
+            <a href="/relocating">Relocating</a>
+          </div>
+        </div>
+        
+        <div class="footer-section areas-served">
+          <h3>Areas Served</h3>
+          <div class="areas-list">Orlando</div>
+          <div class="areas-list">Kissimmee</div>
+          <div class="areas-list">Winter Garden</div>
+          <div class="areas-list">Lake Buena Vista</div>
+          <div class="areas-list">Celebration</div>
+          <div class="areas-list">Windermere</div>
+          <div class="areas-list">Dr. Phillips</div>
+          <div class="areas-list">+ Surrounding Areas</div>
+        </div>
+      </div>
+      
+      <div class="license-info">
+        Licensed Real Estate Professional | Florida Real Estate License #BK123456789<br>
+        Equal Housing Opportunity | MLS Participant
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-bottom-left">
+          © 2025 Central FL Homes by Mel. All rights reserved.
+        </div>
+        <div class="footer-bottom-right">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Service</a>
+          <a href="/accessibility">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
