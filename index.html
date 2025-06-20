@@ -983,16 +983,34 @@
       loadComponent('banner.html', 'banner-placeholder');
       loadComponent('footer.html', 'footer-placeholder');
     });
-    // Simple search form handling
+    // FREE Property Search - Redirects to professional sites
     document.querySelector('.search-box').addEventListener('submit', function(e) {
       e.preventDefault();
-      const location = document.getElementById('location').value;
+      
+      const location = document.getElementById('location').value || 'Central Florida';
       const price = document.getElementById('price').value;
       const bedrooms = document.getElementById('bedrooms').value;
       
-      // In a real implementation, this would redirect to listings page with search parameters
-      alert(`Searching for properties in ${location || 'Central Florida'}`);
-      // window.location.href = `/listings?location=${location}&price=${price}&bedrooms=${bedrooms}`;
+      // Build search URL for Realtor.com (most professional)
+      let searchURL = `https://www.realtor.com/realestateandhomes-search/${location.replace(/\s+/g, '-')}_FL`;
+      
+      // Add price filters
+      if (price === '0-200000') searchURL += '/price-na-200000';
+      if (price === '200000-400000') searchURL += '/price-200000-400000';
+      if (price === '400000-600000') searchURL += '/price-400000-600000';
+      if (price === '600000+') searchURL += '/price-600000-na';
+      
+      // Add bedroom filters
+      if (bedrooms && bedrooms !== '') searchURL += `/beds-${bedrooms}`;
+      
+      // Open in new tab so users can return to your site
+      window.open(searchURL, '_blank');
+      
+      // Show professional message
+      alert(`🏠 Searching for properties in ${location}!\n\nResults will open in a new tab. You can return here anytime to search again or contact Mel directly.`);
+      
+      // Optional: Track what people search for (for analytics)
+      console.log(`Search: ${location}, Price: ${price}, Beds: ${bedrooms}`);
     });
     
     // Smooth scrolling for internal links
