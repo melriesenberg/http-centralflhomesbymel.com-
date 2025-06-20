@@ -613,8 +613,11 @@
   </style>
 </head>
 <body>
-  <!-- Include header.html here -->
-  <!-- Include banner.html here -->
+  <!-- Header will be loaded here -->
+  <div id="header-placeholder"></div>
+  
+  <!-- Banner will be loaded here -->
+  <div id="banner-placeholder"></div>
   
   <main class="main-content">
     <!-- Property Search Section -->
@@ -935,9 +938,51 @@
     </section>
   </main>
 
-  <!-- Include footer.html here -->
+  <!-- Footer will be loaded here -->
+  <div id="footer-placeholder"></div>
   
   <script>
+    // Load header, banner, and footer from external files
+    async function loadComponent(file, elementId) {
+      try {
+        const response = await fetch(file);
+        if (response.ok) {
+          const html = await response.text();
+          document.getElementById(elementId).innerHTML = html;
+          
+          // If loading header, also load its JavaScript
+          if (file === 'header.html') {
+            // Re-execute header scripts for mobile menu functionality
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('nav-menu');
+            
+            if (hamburger && navMenu) {
+              hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+              });
+              
+              // Close mobile menu when clicking outside
+              document.addEventListener('click', (e) => {
+                if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                  navMenu.classList.remove('active');
+                }
+              });
+            }
+          }
+        } else {
+          console.error(`Failed to load ${file}`);
+        }
+      } catch (error) {
+        console.error(`Error loading ${file}:`, error);
+      }
+    }
+
+    // Load all components when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      loadComponent('header.html', 'header-placeholder');
+      loadComponent('banner.html', 'banner-placeholder');
+      loadComponent('footer.html', 'footer-placeholder');
+    });
     // Simple search form handling
     document.querySelector('.search-box').addEventListener('submit', function(e) {
       e.preventDefault();
