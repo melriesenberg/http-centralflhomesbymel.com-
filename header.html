@@ -1,93 +1,205 @@
+<!-- Header Component - Save as header.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Real Estate Header</title>
+  <title>Central FL Homes by Mel - Header</title>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
+    
     body {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      background-color: #f8f1e9; /* Inspired by Established37's neutral palette */
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background-color: #f8fbf8;
     }
-
+    
     .header {
-      background-color: #ffffff;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      background: linear-gradient(135deg, #ffffff 0%, #f0f8f0 100%);
+      box-shadow: 0 3px 12px rgba(76, 130, 89, 0.08);
       position: sticky;
       top: 0;
       z-index: 1000;
-      padding: 20px 40px;
+      padding: 18px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      border-bottom: 3px solid #8db894;
     }
-
-    .logo {
+    
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .logo-icon {
+      font-size: 32px;
+      color: #4c8259;
+    }
+    
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+    
+    .logo-main {
       font-size: 24px;
       font-weight: 700;
-      color: #2b2b2b; /* Dark, elegant color from Established37 */
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      color: #2d5233;
+      letter-spacing: 0.5px;
     }
-
+    
+    .logo-sub {
+      font-size: 14px;
+      color: #8db894;
+      font-weight: 400;
+      font-style: italic;
+    }
+    
     .nav-menu {
       display: flex;
-      gap: 20px;
+      gap: 28px;
+      align-items: center;
     }
-
+    
     .nav-menu a {
       text-decoration: none;
-      color: #2b2b2b;
+      color: #2d5233;
       font-size: 16px;
       font-weight: 500;
-      text-transform: uppercase;
-      transition: color 0.3s ease;
+      padding: 8px 16px;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      position: relative;
+      text-transform: capitalize;
     }
-
+    
     .nav-menu a:hover {
-      color: #d4a373; /* Gold accent inspired by Established37's aesthetic */
+      background-color: #e8f4ea;
+      color: #1e3a26;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(76, 130, 89, 0.15);
     }
-
+    
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      font-size: 14px;
+      color: #4c8259;
+    }
+    
+    .phone {
+      font-weight: 700;
+      color: #a67c52;
+      font-size: 16px;
+      margin-bottom: 2px;
+    }
+    
+    .tagline {
+      font-style: italic;
+      color: #6b9170;
+    }
+    
     .hamburger {
       display: none;
-      font-size: 24px;
+      font-size: 28px;
       cursor: pointer;
-      color: #2b2b2b;
+      color: #4c8259;
+      background: none;
+      border: none;
+      padding: 8px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
     }
-
+    
+    .hamburger:hover {
+      background-color: #e8f4ea;
+    }
+    
     /* Mobile Styles */
     @media (max-width: 768px) {
+      .header {
+        padding: 15px 20px;
+        flex-wrap: wrap;
+      }
+      
+      .logo-main {
+        font-size: 20px;
+      }
+      
+      .logo-icon {
+        font-size: 28px;
+      }
+      
       .nav-menu {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 70px;
+        top: 100%;
         left: 0;
         width: 100%;
-        background-color: #ffffff;
+        background: linear-gradient(135deg, #ffffff 0%, #f0f8f0 100%);
         padding: 20px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 6px 20px rgba(76, 130, 89, 0.12);
+        border-top: 1px solid #d4e8d7;
+        gap: 15px;
       }
-
+      
       .nav-menu.active {
         display: flex;
       }
-
+      
+      .nav-menu a {
+        padding: 12px 20px;
+        text-align: center;
+        border-radius: 8px;
+        font-size: 18px;
+      }
+      
       .hamburger {
         display: block;
+      }
+      
+      .contact-info {
+        display: none;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .header {
+        padding: 12px 15px;
+      }
+      
+      .logo-main {
+        font-size: 18px;
+      }
+      
+      .logo-sub {
+        font-size: 12px;
+      }
+      
+      .logo-icon {
+        font-size: 24px;
       }
     }
   </style>
 </head>
 <body>
   <header class="header">
-    <div class="logo">[Your Mom's Real Estate]</div>
+    <div class="logo-container">
+      <div class="logo-icon">🌴</div>
+      <div class="logo-text">
+        <div class="logo-main">Central FL Homes</div>
+        <div class="logo-sub">by Mel</div>
+      </div>
+    </div>
+    
     <nav class="nav-menu" id="nav-menu">
       <a href="/">Home</a>
       <a href="/about">About Me</a>
@@ -98,15 +210,28 @@
       <a href="/locations">Locations</a>
       <a href="/contact">Contact</a>
     </nav>
-    <div class="hamburger" id="hamburger">☰</div>
+    
+    <div class="contact-info">
+      <div class="phone">(407) 555-HOME</div>
+      <div class="tagline">Your Florida Dream Awaits</div>
+    </div>
+    
+    <button class="hamburger" id="hamburger">☰</button>
   </header>
 
   <script>
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
-
+    
     hamburger.addEventListener('click', () => {
       navMenu.classList.toggle('active');
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+        navMenu.classList.remove('active');
+      }
     });
   </script>
 </body>
